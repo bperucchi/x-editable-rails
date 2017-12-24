@@ -93,7 +93,11 @@ module X
             if el.is_a? Array
               el
             else
-              [el[:value], el[:text]]
+              if el.is_a? Symbol
+                [el.to_s]
+              else
+                [el[:value], el[:text]]
+              end
             end
           end
         end
